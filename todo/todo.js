@@ -42,7 +42,25 @@ const getList = () => {
     return todoList;
 }
 
+const updateTask = ( descripcion, completado = true ) => {
+    loadDB();
+
+    let index = todoList.findIndex( task => {
+        return task.descripcion === descripcion;
+    });
+
+    if( index >= 0 ) {
+        todoList[index].completado = completado;
+        saveDB();
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
 module.exports = {
     create,
-    getList
+    getList,
+    updateTask
 }
