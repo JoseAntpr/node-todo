@@ -25,6 +25,11 @@ switch( comando ) {
         console.log('actualizado', updated);
     break;
 
+    case 'borrar':
+        let deleted = todo.deleteTask( argv.descripcion );
+        console.log('Borrado', deleted);
+    break;
+
     default: 
          console.log('Comando no reconocido. Elija entre crear | listar | actualizar');
 }
