@@ -37,6 +37,12 @@ const loadDB = () => {
     console.log(todoList);
 }
 
+const getList = () => {
+    loadDB();
+    return todoList;
+}
+
 module.exports = {
-    create
+    create,
+    getList
 }
