@@ -11,6 +11,9 @@ const saveDB = () => {
 }
 
 const create = ( descripcion ) => {
+
+    loadDB();
+
     let todo = {
         descripcion,
         completado: false
@@ -21,6 +24,17 @@ const create = ( descripcion ) => {
     saveDB();
 
     return todoList;
+}
+
+const loadDB = () => {
+
+    try{
+        todoList = require('../db/data.json');
+    } catch(error) {
+        todoList = [];
+    }
+
+    console.log(todoList);
 }
 
 module.exports = {
